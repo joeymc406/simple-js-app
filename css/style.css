@@ -2,7 +2,12 @@
 background color: #c0c0c0 silver
 secondary color: 
 font color: #000000 black
-font "robot
+font "roboto condensed
+primary button color: blue #0000ff 
+2ndary button color: green #008000
+new link color: blue #0000ff
+selected link color: dark blue #00008b
+visited link color: maroon #800000
 */
 body {
     font-family: 'Roboto Condensed', sans-serif;
