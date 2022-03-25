@@ -31,3 +31,9 @@ for( let i = 0; i < pokemonList.length; i++){
 
     document.write(`${output}<br>`)
 };
+
+function divide(dividen, divisor){
+    if (divisor===0){
+        return ""   
+    }
+}
