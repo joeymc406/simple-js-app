@@ -19,21 +19,25 @@ let pokemonList = [
 
 //print size and name of pokemon to the page.
 
-for( let i = 0; i < pokemonList.length; i++){
-    output = `{$pokemonList[i].name} (height: ${pokemonList[1].height})`;
+//switching of for funtion for the forEach function
+
+pokemonList.forEach(function(name) {
+    document.write('Name' + name + 'Height' + height + 'Type' + type);
+});
+console.log('Name' + name + 'Height' + height + 'Type' + type)
+
+// for( let i = 0; i < pokemonList.length; i++){
+//     output = `{$pokemonList[i].name} (height: ${pokemonList[1].height})`;
 
     //add comment for if then statement for size.
 
-    if(pokemonList[1].height > 0.6){
-        output = `${output} - wow, that's big!`;
-    }
+    // if(pokemonList[1].height > 0.6){
+    //     output = `${output} - wow, that's big!`;
+    // }
     //add output for conditional statement.
 
-    document.write(`${output}<br>`)
+    // document.write(`${output}<br>`)
 };
 
-function divide(dividen, divisor){
-    if (divisor===0){
-        return ""   
-    }
-}
+
+
