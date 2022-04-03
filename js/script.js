@@ -1,6 +1,6 @@
 let pokemonRepository= (function() {
 // Adding of IIFE in the form of the pokemonRepository above and at the end of the array
-//creating pokemon array
+// pokemon array with pokemon and properties.
     let pokemonList = [
         {
         name: 'Bulbasaur',
@@ -30,7 +30,7 @@ let pokemonRepository= (function() {
 //added console.log at end of additon of pokemonRepository IIFE
  console.log(pokemonRepository.getAll());
  pokemonRepository.add({ name: 'Pikachu'});
- console.log(pokemonReposityr.getAll());
+ console.log(pokemonRepository.getAll());
 //print size and name of pokemon to the page.
 
 //switching of for funtion for the forEach function
