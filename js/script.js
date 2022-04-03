@@ -1,5 +1,7 @@
+// Addition of pokemon.repository IIFE.
+
 let pokemonRepository= (function() {
-// Adding of IIFE in the form of the pokemonRepository above and at the end of the array
+
 // pokemon array with pokemon and properties.
     let pokemonList = [
         {
@@ -18,40 +20,39 @@ let pokemonRepository= (function() {
         type: ['fire', 'flying']
         }
     ];
+// defining the getAll function and the add pokemon function.
+
+    function getAll() {
+        return pokemonList;
+    }
+    
+    function add(pokemon) {
+        pokemonList.push(pokemon);
+    }
+    
+    // rueturn add and get all function
+
     return {
         add: function(pokemon){
             pokemonList.push(pokemon);
         },
         getAll: function() {
-            return pokemonList;
+             return pokemonList;
         }
      }
  })();
+
 //added console.log at end of additon of pokemonRepository IIFE
+
  console.log(pokemonRepository.getAll());
  pokemonRepository.add({ name: 'Pikachu'});
  console.log(pokemonRepository.getAll());
 //print size and name of pokemon to the page.
 
-//switching of for funtion for the forEach function
+//replaced for function with forEach function.
 
-pokemonList.forEach(function(name) {
-    document.write('Name' + name + 'Height' + height + 'Type' + type);
+// replaced pokemon.list and replaced with pokemon.repository for the iife
+
+pokemonRepository.getAll.forEach(function(pokemon) {
+    document.write('Name:' + pokemon.name + 'Height:' + pokemon.height + 'Type' + pokemon.type);
 });
-console.log('Name' + name + 'Height' + height + 'Type' + type)
-
-// for( let i = 0; i < pokemonList.length; i++){
-//     output = `{$pokemonList[i].name} (height: ${pokemonList[1].height})`;
-
-    //add comment for if then statement for size.
-
-    // if(pokemonList[1].height > 0.6){
-    //     output = `${output} - wow, that's big!`;
-    // }
-    //add output for conditional statement.
-
-    // document.write(`${output}<br>`)
-};
-
-
-
