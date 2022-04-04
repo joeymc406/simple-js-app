@@ -6,18 +6,18 @@ let pokemonRepository= (function() {
     let pokemonList = [
         {
         name: 'Bulbasaur',
-        height: 0.7,
-        type: ['grass', 'poison']
+            height: 0.7,
+                type: ['grass', 'poison']
         },
-         {
+        {
         name: 'Squirtle',
-        height: 0.5,
-        type: ['water'],
-         },
-         {
-         name: 'Charmander',
-        height: 0.6,
-        type: ['fire', 'flying']
+             height: 0.5,
+                type: ['water'],
+        },
+        {
+        name: 'Charmander',
+            height: 0.6,
+                type: ['fire', 'flying']
         }
     ];
 // defining the getAll function and the add pokemon function.
@@ -28,6 +28,10 @@ let pokemonRepository= (function() {
     
     function add(pokemon) {
         pokemonList.push(pokemon);
+        if (typeof pokemon === 'object') {
+            pokemonList.push(pokemon);
+             else }
+                document.write('Object requirements not met.')
     }
     
     // rueturn add and get all function
