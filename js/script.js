@@ -30,7 +30,7 @@ let pokemonRepository= (function() {
         pokemonList.push(pokemon);
         if (typeof pokemon === 'object') {
             pokemonList.push(pokemon);
-             else }
+        } else {
                 document.write('Object requirements not met.')
     }
     
@@ -42,9 +42,9 @@ let pokemonRepository= (function() {
         },
         getAll: function() {
              return pokemonList;
+            }
         }
-     }
- })();
+    };
 
 //added console.log at end of additon of pokemonRepository IIFE
 
@@ -59,4 +59,4 @@ let pokemonRepository= (function() {
 
 pokemonRepository.getAll.forEach(function(pokemon) {
     document.write('Name:' + pokemon.name + 'Height:' + pokemon.height + 'Type' + pokemon.type);
-});
+})});
