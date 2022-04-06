@@ -34,6 +34,9 @@ let pokemonRepository= (function() {
                 document.write('Object requirements not met.')
     }
     
+    if (pokemonn !== Object.keys(pokemonlist)){
+        console.log('Object key requirements not met')
+        };
     // rueturn add and get all function
 
     return {
