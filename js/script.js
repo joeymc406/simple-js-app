@@ -26,7 +26,19 @@ let pokemonRepository= (function() {
         return pokemonList;
     }
     
-    function add(pokemon) {
+    let expectedKeys = [ 'name', 'height', 'type']
+
+    let isValid = true
+        Object.keys(pokemon).forEach((key) => {
+            if (!expectedKeys.includes(key)) {
+                isValid = false
+            }
+        })
+    if  (isValid) {
+        pokemonList.push(pokemon)
+     }
+    }
+); function add(pokemon) {
         pokemonList.push(pokemon);
         if (typeof pokemon === 'object') {
             pokemonList.push(pokemon);
@@ -34,11 +46,6 @@ let pokemonRepository= (function() {
                 document.write('Object requirements not met.')
     }
     
-    if (pokemonList(Object.keys(pokemonList)) !== 									newPokemonList(object.keys(newPokemonList))): {
-        document.write('list requirements not met')
-            } else {
-                console.log('problem solved')
-        };
     // rueturn add and get all function
 
     return {
@@ -64,4 +71,4 @@ let pokemonRepository= (function() {
 
 pokemonRepository.getAll.forEach(function(pokemon) {
     document.write('Name:' + pokemon.name + 'Height:' + pokemon.height + 'Type' + pokemon.type);
-})});
+});
