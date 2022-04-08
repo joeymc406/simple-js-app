@@ -25,26 +25,26 @@ let pokemonRepository= (function() {
     function getAll() {
         return pokemonList;
     }
-    
-    let expectedKeys = [ 'name', 'height', 'type']
 
-    let isValid = true
-        Object.keys(pokemon).forEach((key) => {
-            if (!expectedKeys.includes(key)) {
-                isValid = false
-            }
-        })
-    if  (isValid) {
-        pokemonList.push(pokemon)
-     }
-    }
-); function add(pokemon) {
+    function add(pokemon) {
         pokemonList.push(pokemon);
-        if (typeof pokemon === 'object') {
+        if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
             pokemonList.push(pokemon);
-        } else {
-                document.write('Object requirements not met.')
+        }
     }
+
+    function isPokemonValid(pokemon) {
+        let expectedKeys = ['name', 'height', 'type']
+
+        let isValid = true
+            Object.keys(pokemon).forEach((key) => {
+                if (!expectedKeys.includes(key)) {
+
+                }
+            }
+        )}
+
+        return isValid
     
     // rueturn add and get all function
 
