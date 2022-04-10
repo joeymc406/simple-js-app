@@ -1,6 +1,6 @@
 // Addition of pokemon.repository IIFE.
 
-let pokemonRepository= (function() {
+let pokemonRepositor = (function() {
 
 // pokemon array with pokemon and properties.
     let pokemonList = [
@@ -25,38 +25,33 @@ let pokemonRepository= (function() {
     function getAll() {
         return pokemonList;
     }
-
+    //add pokemon function
     function add(pokemon) {
         pokemonList.push(pokemon);
         if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
             pokemonList.push(pokemon);
         }
     }
-
+    //validation function for object keys
     function isPokemonValid(pokemon) {
         let expectedKeys = ['name', 'height', 'type']
 
         let isValid = true
             Object.keys(pokemon).forEach((key) => {
                 if (!expectedKeys.includes(key)) {
-
+                    isValid = false
                 }
             }
         )}
 
         return isValid
     
-    // rueturn add and get all function
+   //changed return and get all fucntion to shorter version
 
     return {
-        add: function(pokemon){
-            pokemonList.push(pokemon);
-        },
-        getAll: function() {
-             return pokemonList;
-            }
-        }
-    };
+        add: add,
+        getAll: getAll
+    }
 
 //added console.log at end of additon of pokemonRepository IIFE
 
@@ -65,10 +60,8 @@ let pokemonRepository= (function() {
  console.log(pokemonRepository.getAll());
 //print size and name of pokemon to the page.
 
-//replaced for function with forEach function.
-
 // replaced pokemon.list and replaced with pokemon.repository for the iife
 
 pokemonRepository.getAll.forEach(function(pokemon) {
     document.write('Name:' + pokemon.name + 'Height:' + pokemon.height + 'Type' + pokemon.type);
-});
+})})
