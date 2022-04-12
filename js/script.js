@@ -1,6 +1,6 @@
 // Addition of pokemon.repository IIFE.
 
-let pokemonRepositor = (function() {
+let pokemonRepository = (function() {
 
 // pokemon array with pokemon and properties.
     let pokemonList = [
@@ -28,9 +28,21 @@ let pokemonRepositor = (function() {
     //add pokemon function
     function add(pokemon) {
         pokemonList.push(pokemon);
-        if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
-            pokemonList.push(pokemon);
+            if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
+                pokemonList.push(pokemon);
         }
+    }
+    // adding buttons and attributes via js
+
+    function addListItem(pokemon) {
+        let pokemonList = document.querySelector(".pokemon-list");
+            let listItem = document.createElement("li");
+                let button = document.createElement('button');
+                    button.innterText = Pokemon.Name;
+                        button.classList.add('pokename');
+                            listItem.appendChild(button);
+                                pokemonList.appendChild(listitem);
+                                
     }
     //validation function for object keys
     function isPokemonValid(pokemon) {
