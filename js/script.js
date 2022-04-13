@@ -32,18 +32,6 @@ let pokemonRepository = (function() {
                 pokemonList.push(pokemon);
         }
     }
-    // adding buttons and attributes via js
-
-    function addListItem(pokemon) {
-        let pokemonList = document.querySelector(".pokemon-list");
-            let listItem = document.createElement("li");
-                let button = document.createElement('button');
-                    button.innterText = Pokemon.Name;
-                        button.classList.add('pokename');
-                            listItem.appendChild(button);
-                                pokemonList.appendChild(listitem);
-                                
-    }
     //validation function for object keys
     function isPokemonValid(pokemon) {
         let expectedKeys = ['name', 'height', 'type']
@@ -57,18 +45,36 @@ let pokemonRepository = (function() {
         )}
 
         return isValid
+
+    //function moved from bottom of page to above return statements
     
+    function addListItem(pokemon) {
+    // adding buttons to <ul> and naming buttons
+    //create elements for the <ul>
+           let pokemonList = document.querySelector(".pokemon-list");
+               let listItem = document.createElement("li");
+                   let button = document.createElement('button');
+                       button.innterText = Pokemon.Name;
+                           button.classList.add('pokemon.name');
+                               listItem.appendChild(button);
+                                   pokemonList.appendChild(listitem);
+                                   
+    }
+
    //changed return and get all fucntion to shorter version
 
     return {
         add: add,
-        getAll: getAll
+        getAll: getAll,
+        addListItem: addListItem
     }
-
+});
 //added console.log at end of additon of pokemonRepository IIFE
 
  console.log(pokemonRepository.getAll());
+
  pokemonRepository.add({ name: 'Pikachu'});
+
  console.log(pokemonRepository.getAll());
 //print size and name of pokemon to the page.
 
@@ -76,4 +82,6 @@ let pokemonRepository = (function() {
 
 pokemonRepository.getAll.forEach(function(pokemon) {
     document.write('Name:' + pokemon.name + 'Height:' + pokemon.height + 'Type' + pokemon.type);
-})})
+     //added function to call upon the add list item for the loop  
+        pokemonRepository.addListItem(pokemon)
+})
