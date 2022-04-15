@@ -55,10 +55,13 @@ let pokemonRepository = (function() {
            let pokemonList = document.querySelector(".pokemon-list");
                let listItem = document.createElement("li");
                    let button = document.createElement('button');
+                            //functions created for pokemon list & button
                        button.innterText = Pokemon.Name;
                            button.classList.add('pokemon-list-item');
+                                    //button created
                                listItem.appendChild(button);
                                     pokemonList.appendChild(listitem);
+                                            //button appended.
                                         button.addEventListener('click', fucntion() {
                                             showDetails(pokemon);
                                         })  
@@ -66,8 +69,8 @@ let pokemonRepository = (function() {
     }
 
        //4-14-22 adding show Details function.
-       function showDetails(pokemon) {
-        console.log()
+        function showDetails(pokemon) {
+            console.log()
     }
 
    //changed return and get all fucntion to shorter version
