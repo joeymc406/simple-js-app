@@ -51,14 +51,23 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
     // adding buttons to <ul> and naming buttons
     //create elements for the <ul>
+    //4-14-22 added butten event listener & function
            let pokemonList = document.querySelector(".pokemon-list");
                let listItem = document.createElement("li");
                    let button = document.createElement('button');
                        button.innterText = Pokemon.Name;
-                           button.classList.add('pokemon.name');
+                           button.classList.add('pokemon-list-item');
                                listItem.appendChild(button);
-                                   pokemonList.appendChild(listitem);
+                                    pokemonList.appendChild(listitem);
+                                        button.addEventListener('click', fucntion() {
+                                            showDetails(pokemon);
+                                        })  
                                    
+    }
+
+       //4-14-22 adding show Details function.
+       function showDetails(pokemon) {
+        console.log()
     }
 
    //changed return and get all fucntion to shorter version
