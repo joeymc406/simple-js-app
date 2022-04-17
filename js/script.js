@@ -26,12 +26,10 @@ let pokemonRepository = (function() {
         return pokemonList;
     }
     //add pokemon function
-    function add(pokemon) {
         pokemonList.push(pokemon);
             if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
                 pokemonList.push(pokemon);
         }
-    }
     //validation function for object keys
     function isPokemonValid(pokemon) {
         let expectedKeys = ['name', 'height', 'type']
