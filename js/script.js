@@ -32,31 +32,32 @@ let pokemonRepository = (function() {
     function addListItem(pokemon) {
       // addded buttons, even listener, and <ul> items
         let pokemonList = document.querySelector('.pokemon-list')
-            let listItem = document.createElement('li')
-                let button = document.createElement('button')
+        let listItem = document.createElement('li')
+        let button = document.createElement('button')
       //functions created for pokemon list & button
-                    button.innerText = pokemon.name
-                        button.classList.add('pokemon-list-item')
+            button.innerText = pokemon.name
+            button.classList.add('pokemon-list-item')
       //button created
-                            listItem.appendChild(button)
-                                pokemonList.appendChild(listItem)
+            listItem.appendChild(button)
+            pokemonList.appendChild(listItem)
       //button appended.
-                                    button.addEventListener('click', function () {
-                                        showDetails(pokemon)
+             button.addEventListener('click', function () {
+            showDetails(pokemon)
         })  
     }   
 // load list functions added.
     function loadList() {
         return fetch(apiUrl).then(function (response){
-            return response.json();
-            }).then(function (json) {
-                json.results.forEach(function (item) {
-                    let pokemon = {
-                        name: item.name,
-                        detailsUrl: item.url
-                    };
-                    add(pokemon);
-                        console.log(pokemon);
+        return response.json();
+             }).then(function (json) {
+            json.results.forEach(function (item) {
+    
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+                    console.log(pokemon);
                 });
         }).catch(function (e) {
             console.error(e);
@@ -95,8 +96,8 @@ let pokemonRepository = (function() {
 
 // replaced pokemon.list and replaced with pokemon.repository for the iife
 pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function(pokemon) { 
-        pokemonRepository.addListItem(pokemon);
+pokemonRepository.getAll().forEach(function(pokemon) { 
+okemonRepository.addListItem(pokemon);
     });
 });
 
