@@ -2,7 +2,7 @@
 let pokemonRepository = (function() {
 // array removed replaced with apiUrl
     let pokemonList = []
-    let apiUrl = "https;//pokeapi.co/api/v2/pokemon/?limit=150"
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150"
 // defining the getAll function and the add pokemon function.
 
     function getAll() {
@@ -89,7 +89,8 @@ let pokemonRepository = (function() {
       getAll: getAll,
       addListItem: addListItem,
       loadDetails: loadDetails,
-      showDetails: showDetails
+      showDetails: showDetails,
+      loadList: loadList
     }
   })()
 
