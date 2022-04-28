@@ -5,7 +5,7 @@ font color: #000000 black
 font "roboto condensed
 button text color: ghost white #f8f8ff
 primary button color: blue #0000ff 
-2ndary button color: green #008000
+secondary button color: green #008000
 new link color: blue #0000ff
 selected link color: dark blue #00008b
 visited link color: maroon #800000
@@ -33,5 +33,51 @@ h3 {
 }
 background-color{
     Color: #c0c0c0;
+}
+
+#modal-container {
+    position: fixed;
+    padding: 20px;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0 , 0, 0.5);
+    /* to show it above other content */
+    z-index: 999;
+    /*to allow scrolling if the scree is not high enough*/
+    overflow: auto;
+    /*used to center the modal*/
+    display: grid;
+    text-align: center;
+}
+
+.modal {
+    margin: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    background: #fff;
+    padding: 15px;
+    width: 100%;
+    max-width: 700px;
+    text-align: left;
+}
+
+.modal-close {
+    float: right;
+    -webkit-appearance: none;
+    border: 0;
+    background: none;
+    color: #777;
+    text-decoration: underline;
+}
+
+.modal h1 {
+    margin-top: 0;
+}
+
+.modal p {
+    margin-bottom: 0;
 }
 
