@@ -81,3 +81,11 @@ background-color{
     margin-bottom: 0;
 }
 
+#modal-container {
+    display: none;
+}
+
+/*add more styling here for this tag*/
+#modal-container.is-visible {
+    display: block;
+}
