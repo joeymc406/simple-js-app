@@ -27,8 +27,6 @@ let pokemonRepository = (function() {
         return isValid
     }
   
-    //function moved from bottom of page to above return statements
-  
     function addListItem(pokemon) {
       // addded buttons, even listener, and <ul> items
         let pokemonList = document.querySelector('.pokemon-list')
@@ -76,7 +74,7 @@ let pokemonRepository = (function() {
                 console.error(e);
             });
     }
-//show detaisl(item)function
+//show details(item)function
     function showDetails(item) {
         pokemonRepository.loadDetails(item).then(function
             () {
@@ -92,7 +90,7 @@ let pokemonRepository = (function() {
       showDetails: showDetails,
       loadList: loadList
     }
-  })()
+})()
 
 
 // replaced pokemon.list and replaced with pokemon.repository for the iife
