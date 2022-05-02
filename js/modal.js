@@ -70,6 +70,18 @@ let pokemonRepository = (function () {
             confirmButton.focus();
         }
 
+        document.querySelector('show-modal').addEventListener('click', () => {
+            showModal('Modal Title', 'This is the modal content');
+        });
+
+        document.querySelector('#show-dialog').addEventListener('click', () => {
+            showDialog('Confirm action', 'Are you sure you want to do this').then(function() {
+                alert('confirmed!');
+            }, () => {
+                alert('not confirmed');
+            });
+        });
+
           // escape key scenario
         window.addEventListener('keydown', (e) => {
             let modalContainer = document.querySelector('#modal-container');
@@ -84,18 +96,6 @@ let pokemonRepository = (function () {
             if (target === modalContainer) {
                 hideModal();
             }
-        });
-    
-        document.querySelector('show-modal').addEventListener('click', () => {
-            showModal('Modal Title', 'This is the modal content');
-        });
-
-        document.querySelector('#show-dialog').addEventListener('click', () => {
-            showDialog('Confirm action', 'Are you sure you want to do this').then(function() {
-                alert('confirmed!');
-            }, () => {
-                alert('not confirmed');
-            });
         });
 
         //promise return function of resolve and reject for dialog modal
