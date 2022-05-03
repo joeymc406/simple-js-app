@@ -1,11 +1,11 @@
 // IIFE created for modal javascript
-let pokemonRepository = (function () {
+let modal = (function () {
     let modalContainer = document.querySelector('#modal-container');
     // modals added to IIFE.
 
         function showModal(title, text) {
             //clear all existing modal content
-            modalContainer.innerHTML = '';
+            modalContainer.innerHTML = ' ';
     
         let modal = document.createElement('div');
             modal.classList.add('modal');
