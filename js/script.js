@@ -104,7 +104,7 @@ let pokemonRepository = (function() {
         }
 
         document.querySelector('#show-modal').addEventListener('click', () => {
-        showModal('modal Title', 'Modal Content');
+        showModal('title of modal', 'content of modal');
         });
 
       // escape key scenario
