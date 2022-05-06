@@ -2,7 +2,8 @@
 let pokemonRepository = (function() {
 // array removed replaced with apiUrl
     let pokemonList = []
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150"
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    let modalContainer = document.querySelector('#modal-container');
 // defining the getAll function and the add pokemon function.
 
     function getAll() {
@@ -13,6 +14,16 @@ let pokemonRepository = (function() {
         if (typeof pokemon === 'object' && isPokemonValid(pokemon)) {
             pokemonList.push(pokemon)
       }
+    }
+
+    function showLoadingMessage() {
+        let loadingMessage =  document.querySelector('.loading-PokemonList')
+        loadingMessage.classList.remove('hidden')
+    }
+
+    function hideLoadingMessage() {
+        let loadingMessage = document.querySelector('.loading-pokemonList')
+        loadingMessage.classList.add('hidden')
     }
     //validation function for object keys
     function isPokemonValid(pokemon) {
@@ -29,23 +40,32 @@ let pokemonRepository = (function() {
   
     function addListItem(pokemon) {
       // added buttons, even listener, and <ul> items
-        let pokemonList = document.querySelector('.pokemon-list')
-        let listItem = document.createElement('li')
-        let button = document.createElement('button')
+        let pokemonList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
         //functions created for pokemon list & button
-            button.innerText = pokemon.name
-            button.classList.add('pokemon-list-item')
+            button.innerText = pokemon.name;
+            button.classList.add('pokemon-list-item');
          //button created
-            button.addEventListener('click', function () {
-            showDetails(pokemon)
-        //button appended.
-            listItem.appendChild(button)
-            pokemonList.appendChild(listItem)
+           
+            listItem.appendChild(button);
+            pokemonList.appendChild(listItem);
+            //button appended.
+
+            button.addEventListener('click', function (event) {
+                showDetails(pokemon);
         })  
     }   
+
+    //show details(item)function
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function() {
+                showModal(pokemon);
+            });
+        }   
 // load list functions added.
     function loadList() {
-        return fetch(apiUrl).then(function (response){
+        return fetch(apiUrl).then(function (response) {
         return response.json();
              }).then(function (json) {
             json.results.forEach(function (item) {
@@ -74,12 +94,7 @@ let pokemonRepository = (function() {
                 console.error(e);
             });
     }
-//show details(item)function
-    function showDetails(item) {
-        pokemonRepository.loadDetails(item).then(function
-            () {
-                console.log(item);
-            });
+
         }
 //returns all items from functions
     return  {
@@ -92,9 +107,7 @@ let pokemonRepository = (function() {
     };
 })();
 
-// IIFE created for modal javascript
-let modal = (function () {
-    let modalContainer = document.querySelector('#modal-container');
+    
     // modals added to IIFE.
 
         function showModal(title, text) {
