@@ -147,7 +147,7 @@ let pokemonRepository = (function() {
         pokemon.types.forEach((type, numberOfTypes) => {
         numberOfTypes = pokemon.types.pokemon;
         
-        if (numberOfTypes ===1) {
+        if (numberOfTypes === 1) {
             typeElement.innerText += type.type.name;
         } else {
             typeElement.innerText += type.type.name + " ";
@@ -158,7 +158,6 @@ let pokemonRepository = (function() {
     imageElement.classList.add(modal-image);
     imageElement.src = pokemon.imageUrl
     // modals added to IIFE.
-
     
             modal.appendChild(closeButtonElement);
             modal.appendChild(imageElement);
@@ -177,9 +176,8 @@ let pokemonRepository = (function() {
         function hideModal() {
             modalContainer.classList.remove('is-visible');
 
-        // dialog modal
         function showDialog(title, text) {
-            showModal(title, text);
+            showModal(title, text); // unsure if dialog modal is needed
         }
     }
 
