@@ -137,7 +137,7 @@ let pokemonRepository = (function () {
         hideModal()
       }
     })
-  
+// error flagged in console here at the event listener line 141
         modalContainer.addEventListener('click', (e) => {
     let target = e.target
         if (target === modalContainer) {
@@ -214,7 +214,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-})() // this creates an anonymous function and immediately calls it.
+})() // error flagged at line 217 character 3 in console on chrome
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
