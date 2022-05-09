@@ -89,7 +89,7 @@ let pokemonRepository = (function () {
             console.log(json.results)
             json.results.forEach(function (item) {
     let pokemon = {
-        ame: item.name,
+        name: item.name,
         detailsUrl: item.url
         }
         add(pokemon)
