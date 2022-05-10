@@ -82,7 +82,7 @@ let pokemonRepository = (function () {
         showLoadingMessage()
   
         return fetch(apiUrl)
-             .then(function (response) {
+            .then(function (response) {
         return response.json()
         })
             .then(function (json) {
@@ -165,8 +165,8 @@ let pokemonRepository = (function () {
     let heightElement = document.createElement('p')
         heightElement.innerText = 'height:' + pokemon.height
   
-      let weightElement = document.createElement('p')
-      let typeElement = document.createElement('p')
+    let weightElement = document.createElement('p')
+    let typeElement = document.createElement('p')
   
         typeElement.innerText = 'Types: '
         pokemon.types.forEach((type, numberOfTypes) => {
@@ -219,8 +219,8 @@ let pokemonRepository = (function () {
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
-    pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon)
+        pokemonRepository.getAll().forEach(function (pokemon) {
+            pokemonRepository.addListItem(pokemon)
+        })
     })
-  })
   
