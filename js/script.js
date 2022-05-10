@@ -215,7 +215,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-}) // error flagged at line 217 character 3 in console on chrome
+})() // error flagged at line 217 character 3 in console on chrome
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
