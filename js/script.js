@@ -138,12 +138,13 @@ let pokemonRepository = (function () {
       }
     })
 // error flagged in console here at the event listener line 141
-        modalContainer.addEventListener('click', (e) => {
-    let target = e.target
-        if (target === modalContainer) {
-            hideModal()
-        }
-    })
+
+        //modalContainer.addEventListener('click', (e) => {
+    //let target = e.target
+        //if (target === modalContainer) {
+           // hideModal()
+       // }
+   // })
   
     function showModal(pokemon) {
       //clear all existing modal content
@@ -214,7 +215,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-})() // error flagged at line 217 character 3 in console on chrome
+}) // error flagged at line 217 character 3 in console on chrome
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
