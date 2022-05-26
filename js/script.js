@@ -3,9 +3,11 @@ let pokemonRepository = (function () {
     // array removed replaced with apiUrl
     let pokemonList = []
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
-    let modalContainer = document.querySelector('#modal-container')
+
+   // let modalContainer = document.querySelector('#modal-container') code comented out not sure what to do with it yet!!
+
     // defining the getAll function and the add pokemon function.
-  
+
     function getAll() {
         return pokemonList
     }
@@ -55,25 +57,28 @@ let pokemonRepository = (function () {
       // added buttons, even listener, and <ul> items
     let pokemonList = document.querySelector('.pokemon-list')
     let listItem = document.createElement('li')
+    // adding bootstrap below this line...
+    listItem.classList.add('')// add more here
     let button = document.createElement('button')
       //functions created for pokemon list & button
         button.innerText = pokemon.name
         button.classList.add('pokemon-list-item')
       //button created
-  
         listItem.appendChild(button)
         pokemonList.appendChild(listItem)
       //button appended.
-  
          button.addEventListener('click', function (event) {
         showDetails(pokemon)
         })
+        //BOOTSTRAP... add classes/attributes
+
     }
   
     //show details(item)function
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-        showModal(pokemon)
+
+        //showModal(pokemon) this part of code commented out dont know what to do with it yet!!!!!
       })
     }
   
@@ -126,85 +131,6 @@ let pokemonRepository = (function () {
         })
     }
   
-        document.querySelector('#show-modal').addEventListener('click', () => {
-        showModal('title of modal', 'content of modal')
-    })
-  
-    // escape key scenario
-        window.addEventListener('keydown', (e) => {
-      // escape key executes hide modal function
-    if (e.key == 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal()
-      }
-    })
-// error flagged in console here at the event listener line 141
-
-        //modalContainer.addEventListener('click', (e) => {
-    //let target = e.target
-        //if (target === modalContainer) {
-           // hideModal()
-       // }
-   // })
-  
-    function showModal(pokemon) {
-      //clear all existing modal content
-        modalContainer.innerHTML = ''
-  
-    let modal = document.createElement('div')
-        modal.classList.add('modal')
-  
-      //add the new modal content
-    let closeButtonElement = document.createElement('button')
-        closeButtonElement.classList.add('modal-close')
-        closeButtonElement.innerText = 'close'
-        closeButtonElement.addEventListener('click', hideModal)
-  
-    let titleElement = document.createElement('h1')
-        titleElement.innerText = pokemon.name
-  
-    let heightElement = document.createElement('p')
-        heightElement.innerText = 'height:' + pokemon.height
-  
-    let weightElement = document.createElement('p')
-    let typeElement = document.createElement('p')
-  
-        typeElement.innerText = 'Types: '
-        pokemon.types.forEach((type, numberOfTypes) => {
-        numberOfTypes = pokemon.types.pokemon
-  
-        if (numberOfTypes === 1) {
-            typeElement.innerText += type.type.name
-        } else {
-            typeElement.innerText += type.type.name + ' '
-        }
-      })
-  
-      let imageElement = document.createElement('img')
-        imageElement.classList.add('modal-image')
-        imageElement.src = pokemon.imageUrl
-      // modals added to IIFE.
-  
-        modal.appendChild(closeButtonElement)
-        modal.appendChild(imageElement)
-        modal.appendChild(titleElement)
-        modal.appendChild(heightElement)
-        modal.appendChild(weightElement)
-        modal.appendChild(typeElement)
-      // modal.appendChild(contentElement) // it is not defined, need to create first and fill it up
-        modalContainer.appendChild(modal)
-  
-      // adds .is-visible to modal container
-        modalContainer.classList.add('is-visible')
-    }
-  
-    //hide modal function
-    function hideModal() {
-        modalContainer.classList.remove('is-visible')
-  
-    function showDialog(title, text) {
-        showModal(title, text) // unsure if dialog modal is needed
-      }
-    }
   
     //returns all items from functions
     return {
