@@ -3,11 +3,9 @@ let pokemonRepository = (function () {
     // array removed replaced with apiUrl
     let pokemonList = []
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150'
-
-   // let modalContainer = document.querySelector('#modal-container') code comented out not sure what to do with it yet!!
-
-    // defining the getAll function and the add pokemon function.
-
+    let input = $('input');
+        input.on('input', filterList);
+    // defining the getAll function and the add pokemon function
     function getAll() {
         return pokemonList
     }
@@ -16,16 +14,6 @@ let pokemonRepository = (function () {
         if (typeof pokemon === 'object' && isPokemonValidListItem(pokemon)) {
             pokemonList.push(pokemon)
       }
-    }
-  
-    function showLoadingMessage() {
-    let loadingMessage = document.querySelector('.loading-PokemonList')
-        loadingMessage.classList.remove('hidden')
-    }
-  
-    function hideLoadingMessage() {
-    let loadingMessage = document.querySelector('.loading-PokemonList')
-        loadingMessage.classList.add('hidden')
     }
   
     function isPokemonValidListItem(pokemon) {
@@ -54,21 +42,34 @@ let pokemonRepository = (function () {
   
     function addListItem(pokemon) {
         console.log('addListItem')
-      // added buttons, even listener, and <ul> items
-    let pokemonList = document.querySelector('.pokemon-list')
-    let listItem = document.createElement('li')
-    // adding bootstrap below this line...
-    listItem.classList.add('')// add more here
-    let button = document.createElement('button')
-      //functions created for pokemon list & button
+      // vanilla javascript removed bootstrap added.
+    let ul = document.querySelector('ul');
+
+    let listItem = document.createElement('li');
+
+    // adding bootstrap below this line... ----------------------------
+        listItem.classList.add('')// add more here--------------------------
+    
+        //button added
+    let button = document.createElement('button');
+
         button.innerText = pokemon.name
-        button.classList.add('pokemon-list-item')
-      //button created
+
+        button.addEventListener('click', function (event) {
+            showDetails(pokemon)
+
+        button.classList.add('btn', 'btn-block', 'btn-outline-primary');
+
+        button.classList.add('m-1', 'bg-blue');
+
+        button.setAttribute('data-toggle', 'modal');
+
+        button.setAttribute('data-target', '.modal')
+
         listItem.appendChild(button)
-        pokemonList.appendChild(listItem)
+        ul.appendChild(listItem)
       //button appended.
-         button.addEventListener('click', function (event) {
-        showDetails(pokemon)
+        
         })
         //BOOTSTRAP... add classes/attributes
 
@@ -78,13 +79,37 @@ let pokemonRepository = (function () {
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
 
-        //showModal(pokemon) this part of code commented out dont know what to do with it yet!!!!!
       })
     }
+
+    function showModal(pokemon){
+
+    let modalBody = $('.modal-body');
+      
+    let modalTItle = $('modal-title');
+      
+        modalTItle.empty();
+        modalBody.empty();
+
+    let pokemonName = $('<h1>${pokemon.name</h1>');
+    
+    let pokemonImage = $('<img class="modal-img mx-auto" src"${add link here}" alt="pokemon Logo" ${pokemon.name}">')
+
+    let pokemonHeight = $('<p class="ml-4 mt-2 mb-0">Height: ${pokemon.height</p>')
+    };
+    
+    let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
+    let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
+
+    // Append all pokemon elements.
+    modalTitle.append(pokemonName);
+    modalBody.append(pokemonImage);
+    modalBody.append(pokemonHeight);
+    modalBody.append(pokemonWeight);
+    modalBody.append(pokemonTypes);
   
     // load list functions added.
     function loadList() {
-        showLoadingMessage()
   
         return fetch(apiUrl)
             .then(function (response) {
@@ -99,15 +124,31 @@ let pokemonRepository = (function () {
         }
         add(pokemon)
             // console.log(pokemon)
-        setTimeout(function () {
-        hideLoadingMessage()
-            }, 1000)
         })
     })
         .catch(function (e) {
         console.error(e)
-        hideLoadingMessage()
         })
+    }
+
+    function filterList() {
+
+    let inputValue = $('input').val();
+
+    let list = $('li');
+
+        list.each(function() {
+
+    let item = $(this);
+
+    let name = item.text();
+
+    if (name.startsWith(inputValue)) {
+        item.show();
+    } else {
+        item.hide();
+            }
+        });
     }
     //load details functions added
     function loadDetails(item) {
