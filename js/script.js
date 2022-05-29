@@ -69,16 +69,13 @@ let pokemonRepository = (function () {
         listItem.appendChild(button)
         ul.appendChild(listItem)
       //button appended.
-        
         })
         //BOOTSTRAP... add classes/attributes
-
     }
   
     //show details(item)function
     function showDetails(pokemon) {
         loadDetails(pokemon).then(function () {
-
       })
     }
 
@@ -96,7 +93,7 @@ let pokemonRepository = (function () {
     let pokemonImage = $('<img class="modal-img mx-auto" src"${add link here}" alt="pokemon Logo" ${pokemon.name}">')
 
     let pokemonHeight = $('<p class="ml-4 mt-2 mb-0">Height: ${pokemon.height</p>')
-    };
+    
     
     let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
     let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
@@ -182,7 +179,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-})();
+}})();
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
