@@ -86,9 +86,9 @@ let pokemonRepository = (function () {
 
     let modalBody = $('.modal-body');
       
-    let modalTItle = $('modal-title');
+    let modalTitle = $('modal-title');
       
-        modalTItle.empty();
+        modalTitle.empty();
         modalBody.empty();
 
     let pokemonName = $('<h1>${pokemon.name</h1>');
