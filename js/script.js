@@ -29,7 +29,7 @@ let pokemonRepository = (function () {
     }
     //validation function for object keys
     function isPokemonValid(pokemon) {
-        let expectedKeys = ['name', 'height', 'type']
+    let expectedKeys = ['name', 'height', 'type']
   
     let isValid = true
         Object.keys(pokemon).forEach((key) => {
@@ -98,12 +98,13 @@ let pokemonRepository = (function () {
     let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
     let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
 
+    }
     // Append all pokemon elements.
-    modalTitle.append(pokemonName);
-    modalBody.append(pokemonImage);
-    modalBody.append(pokemonHeight);
-    modalBody.append(pokemonWeight);
-    modalBody.append(pokemonTypes);
+        modalTitle.append(pokemonName);
+        modalBody.append(pokemonImage);
+        modalBody.append(pokemonHeight);
+        modalBody.append(pokemonWeight);
+        modalBody.append(pokemonTypes);
   
     // load list functions added.
     function loadList() {
@@ -169,7 +170,6 @@ let pokemonRepository = (function () {
         })
     }
   
-  
     //returns all items from functions
     return {
         add: add,
@@ -179,7 +179,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-}});
+})()
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
