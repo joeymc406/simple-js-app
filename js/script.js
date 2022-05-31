@@ -48,13 +48,14 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
 
     // adding bootstrap below this line... ----------------------------
-        //listItem.classList.add('') add more here--------------------------
+        listItem.classList.add('col-sm-8') //add more here--------------------------
     
         //button added
     let button = document.createElement('button');
 
         button.innerText = pokemon.name
 
+        //button attributes added
         button.addEventListener('click', function (event) {
             showDetails(pokemon)
 
