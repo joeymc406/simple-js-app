@@ -48,7 +48,7 @@ let pokemonRepository = (function () {
     let listItem = document.createElement('li');
 
     // adding bootstrap below this line... ----------------------------
-        listItem.classList.add('')// add more here--------------------------
+        //listItem.classList.add('') add more here--------------------------
     
         //button added
     let button = document.createElement('button');
@@ -98,14 +98,14 @@ let pokemonRepository = (function () {
     let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
     let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
 
-    }
+    
     // Append all pokemon elements.
         modalTitle.append(pokemonName);
         modalBody.append(pokemonImage);
         modalBody.append(pokemonHeight);
         modalBody.append(pokemonWeight);
         modalBody.append(pokemonTypes);
-  
+}
     // load list functions added.
     function loadList() {
   
