@@ -67,10 +67,11 @@ let pokemonRepository = (function () {
 
         button.setAttribute('data-target', '.modal')
 
-        listItem.appendChild(button)
-        ul.appendChild(listItem)
       //button appended.
         })
+
+        listItem.appendChild(button)
+        ul.appendChild(listItem)
         //BOOTSTRAP... add classes/attributes
     }
   
