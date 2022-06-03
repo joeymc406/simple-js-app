@@ -57,7 +57,7 @@ let pokemonRepository = (function () {
 
         //button attributes added
         button.addEventListener('click', function (event) {
-            //showDetails(pokemon)
+            showDetails(pokemon)
 
         button.classList.add('btn', 'btn-block', 'btn-outline-primary');
 
@@ -76,10 +76,10 @@ let pokemonRepository = (function () {
     }
   
     //show details(item)function
-    //function showDetails(pokemon) {
-        //loadDetails(pokemon).then(function () {
-      //})
-   // }
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+      })
+    }
 
     function showModal(pokemon) {
 
@@ -152,6 +152,7 @@ let pokemonRepository = (function () {
     }
     //load details functions added
     function loadDetails(item) {
+        showLoadingMessage()
   
     let url = item.detailsUrl
         return fetch(url)
