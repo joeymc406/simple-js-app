@@ -39,13 +39,6 @@ let pokemonRepository = (function () {
         })
         return isValid
     }
-
-    //show details(item)function
-    function showDetails(pokemon) {
-        loadDetails(pokemon).then(function () {
-            showModal(pokemon);
-      });
-    }
   
     function addListItem(pokemon) {
         console.log('addListItem')
@@ -83,7 +76,12 @@ let pokemonRepository = (function () {
         //BOOTSTRAP... add classes/attributes
     }
   
-    
+    //show details(item)function
+    function showDetails(pokemon) {
+        loadDetails(pokemon).then(function () {
+            showModal(pokemon);
+      });
+    }
 
     function showModal(pokemon) {
 
