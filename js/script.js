@@ -9,16 +9,7 @@ let pokemonRepository = (function () {
     function getAll() {
         return pokemonList
     }
-
-    function showLoadingMessage() {
-        let loadingMessage = document.querySelector('.loading-PokemonList')
-            loadingMessage.classList.remove('hidden')
-    }
     
-        function hideLoadingMessage() {
-        let loadingMessage = document.querySelector('.loading-PokemonList')
-            loadingMessage.classList.add('hidden')
-        }
     //add pokemon function
     function add(pokemon) {
         if (typeof pokemon === 'object' && isPokemonValidListItem(pokemon)) {
@@ -70,14 +61,10 @@ let pokemonRepository = (function () {
             showDetails(pokemon);
             event.target.blur();
 
-        button.classList.add('btn', 'btn-block', 'btn-outline-primary');
-
+        button.classList.add('btn', 'btn-block', 'btn-outline-primary')
         button.classList.add('m-1', 'bg-blue');
-
         button.setAttribute('data-toggle', 'modal');
-
         button.setAttribute('data-target', '.modal')
-
       //button appended.
         })
 
@@ -96,19 +83,14 @@ let pokemonRepository = (function () {
     function showModal(pokemon) {
 
     let modalBody = $('.modal-body');
-      
     let modalTitle = $('modal-title');
       
         modalTitle.empty();
         modalBody.empty();
 
     let pokemonName = $('<h1>${pokemon.name</h1>');
-    
     let pokemonImage = $('<img class="modal-img mx-auto" src"${add link here}" alt="pokemon Logo" ${pokemon.name}">')
-
     let pokemonHeight = $('<p class="ml-4 mt-2 mb-0">Height: ${pokemon.height</p>')
-    
-    
     let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
     let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
 
@@ -146,15 +128,11 @@ let pokemonRepository = (function () {
     function filterList() {
 
     let inputValue = $('input').val();
-
     let list = $('li');
-
         list.each(function() {
 
     let item = $(this);
-
     let name = item.text();
-
     if (name.startsWith(inputValue)) {
         item.show();
     } else {
@@ -164,7 +142,6 @@ let pokemonRepository = (function () {
     }
     //load details functions added
     function loadDetails(item) {
-        showLoadingMessage()
   
     let url = item.detailsUrl
         return fetch(url)
@@ -176,11 +153,9 @@ let pokemonRepository = (function () {
             item.height = details.height
             item.weight = details.weight
             item.types = details.types
-            hideLoadingMessage()
         })
             .catch(function (e) {
             console.error(e)
-            hideLoadingMessage()
         })
     }
   
@@ -193,7 +168,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-}())
+})()
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
@@ -201,3 +176,4 @@ let pokemonRepository = (function () {
             pokemonRepository.addListItem(pokemon)
         })
     })
+  
