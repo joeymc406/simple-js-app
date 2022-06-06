@@ -193,7 +193,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-})()
+}
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
@@ -201,4 +201,4 @@ let pokemonRepository = (function () {
             pokemonRepository.addListItem(pokemon)
         })
     })
-  
+})
