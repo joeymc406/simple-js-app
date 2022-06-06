@@ -13,12 +13,12 @@ let pokemonRepository = (function () {
     function showLoadingMessage() {
         let loadingMessage = document.querySelector('.loading-PokemonList')
             loadingMessage.classList.remove('hidden')
-        }
+    }
     
         function hideLoadingMessage() {
         let loadingMessage = document.querySelector('.loading-PokemonList')
             loadingMessage.classList.add('hidden')
-
+        }
     //add pokemon function
     function add(pokemon) {
         if (typeof pokemon === 'object' && isPokemonValidListItem(pokemon)) {
@@ -193,7 +193,7 @@ let pokemonRepository = (function () {
         showDetails: showDetails,
         loadList: loadList
     }
-}
+}())
   
   // replaced pokemon.list and replaced with pokemon.repository for the iife
     pokemonRepository.loadList().then(function () {
@@ -201,4 +201,3 @@ let pokemonRepository = (function () {
             pokemonRepository.addListItem(pokemon)
         })
     })
-})
