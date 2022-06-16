@@ -56,15 +56,16 @@ let pokemonRepository = (function () {
 
         button.innerText = pokemon.name
 
+        button.classList.add('btn', 'btn-block', 'btn-outline-primary')
+        button.classList.add('m-1', 'bg-blue');
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '.modal')
+
         //button attributes added
         button.addEventListener('click', function (event) {
             showDetails(pokemon);
             event.target.blur();
 
-        button.classList.add('btn', 'btn-block', 'btn-outline-primary')
-        button.classList.add('m-1', 'bg-blue');
-        button.setAttribute('data-toggle', 'modal');
-        button.setAttribute('data-target', '.modal')
       //button appended.
         })
 
