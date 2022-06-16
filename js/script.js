@@ -44,7 +44,7 @@ let pokemonRepository = (function () {
     function addListItem(pokemon) {
         console.log('addListItem')
       // vanilla javascript removed bootstrap added.
-    let ul = document.querySelector('ul');
+    let  = document.querySelector('ul');
 
     let listItem = document.createElement('li');
 

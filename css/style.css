@@ -34,3 +34,7 @@ h3 {
 background-color{
     Color: #c0c0c0;
 }
+
+.col-sm-8 {
+    list-style: none;
+}
