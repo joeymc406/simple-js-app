@@ -88,11 +88,11 @@ let pokemonRepository = (function () {
         modalTitle.empty();
         modalBody.empty();
 
-    let pokemonName = $('<h1>${pokemon.name</h1>');
-    let pokemonImage = $('<img class="modal-img mx-auto" src"${add link here}" alt="pokemon Logo" ${pokemon.name}">')
-    let pokemonHeight = $('<p class="ml-4 mt-2 mb-0">Height: ${pokemon.height</p>')
-    let pokemonWeight = $('<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>');
-    let pokemonTypes = $('<p class="ml-4">types: ${pokemon.types.join(', ')}</p>');
+    let pokemonName = $(`<h1>${pokemon.name}</h1>`);
+    let pokemonImage = $(`<img class="modal-img mx-auto" src"${pokemonlogo.png}" alt="pokemon Logo" ${pokemon.name}">`);
+    let pokemonHeight = $(`<p class="ml-4 mt-2 mb-0">Height: ${pokemon.height}</p>`);
+    let pokemonWeight = $(`<p class="ml-4 mb-0">Weight: ${pokemon.weight}</p>`);
+    let pokemonTypes = $(`<p class="ml-4">types: ${pokemon.types.join(', ')}</p>`);
 
     
     // Append all pokemon elements.
